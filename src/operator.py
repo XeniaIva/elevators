@@ -1,31 +1,56 @@
+"""
+Из доки: IOperator описывает функционал диспетчера
+вопрос нейминга не разрешён
+"""
+from src.elevator import Elevator
+
+
 class Operator:
     def __init__(self, elevator: Elevator):
-        pass
+        """
+        Из доки:
+        Содержит ссылку на экземпляр лифта
+        Зачем?
+        Разве диспетчер не следит за несколькими лифтами?
+        Кажется, нужно несколько лифтов
+        """
+        self.elevator = elevator
+    
+    def open_doors(self):
+        self.elevator.open_doors()
+    
+    def close_doors(self):
+        self.elevator.close_doors()
 
-    def open_doors() -> bool:
-        return elevator.open_doors()
+    def light_on(self):
+        self.elevator.turn_light_on()
+    
+    def light_off(self):
+        self.elevator.turn_light_off()
+    
+    def call(self):
+        """
+        В доке написан про попытку
+        ToDo: Реализовать именно попытку
+        """
+        try:
+            self.elevator.call_dispatcher()
+        except Exception as e:
+            pass
+    
+    def move_to_floor(self, floor: int):
+        self.elevator.move_to_floor(floor)
+    
+    def get_elevator_state(self):
+        """
+        Состояние кабины лифта
+        Какое состояние???
+        мб в классе лифта собрать инфу со всех датчиков
+        """
+        return {}
 
-    def close_doors() -> bool:
-        return elevator.close_doors()
-
-    def turn_light_on() -> None:
-        elevator.turn_light_on()
-
-    def turn_light_off() -> None:
-        elevator.turn_light_off()
-
-    # Todo: Recheck the requirements' spec. Might be better to return bool, not void
-    # Or throw an exception, but this seems like an overkill
-    def call() -> None:
-        pass
-
-    # Same consideration as with the call method
-    def move_to_floor(floor: int) -> None:
-        pass
-
-    def get_lift_state() -> LiftState:
-        pass
-
-    # And again, may be bool will be better
-    def restart() -> None:
+    def restart(self):
+        """
+        ToDo: реализовать перезагрузку кабины
+        """
         pass
