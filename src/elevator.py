@@ -78,9 +78,6 @@ class Elevator:
         self.is_smoked = False
 
     def is_door_blocked(self):
-        """
-        Датчик помехи???
-        """
         pass
 
     def call_dispatcher(self):
@@ -89,9 +86,6 @@ class Elevator:
     def trigger(self):
         """
         Реакция на изменение параметров датчиков
-        вижу, что нужен датчик помехи дверей
-        : что ещё?
-        UPD: вижу в доке 4.3 RI-04-05 п.1
         """
         pass
 
